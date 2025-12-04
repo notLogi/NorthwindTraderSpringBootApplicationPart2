@@ -1,51 +1,63 @@
 package com.pluralsight.NorthwindTraderSpringBootApplicationPart2.models;
 
-public class Transaction {
-    private int transactionId;
-    private double amount;
-    private String vendor;
+public class Product {
+    private int productId;
+    private String productName;
+    private int categoryId;
+    private double unitPrice;
 
-    public Transaction(double amount, String vendor) {
-        this.amount = amount;
-        this.vendor = vendor;
+    public Product(String productName, int categoryId, double unitPrice) {
+        this.productName = productName;
+        this.categoryId = categoryId;
+        this.unitPrice = unitPrice;
     }
 
-    public Transaction(int transactionId, double amount, String vendor) {
-        this.transactionId = transactionId;
-        this.amount = amount;
-        this.vendor = vendor;
+    public Product(int productId, String productName, int categoryId, double unitPrice) {
+        this.productId = productId;
+        this.productName = productName;
+        this.categoryId = categoryId;
+        this.unitPrice = unitPrice;
     }
 
-    public int getTransactionId() {
-        return transactionId;
+    public int getProductId() {
+        return productId;
     }
 
-    public void setTransactionId(int transactionId) {
-        this.transactionId = transactionId;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
-    public double getAmount() {
-        return amount;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
-    public String getVendor() {
-        return vendor;
+    public int getCategoryId() {
+        return categoryId;
     }
 
-    public void setVendor(String vendor) {
-        this.vendor = vendor;
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(double unitPrice) {
+        this.unitPrice = unitPrice;
     }
 
     @Override
     public String toString() {
-        return "Transaction{" +
-                "transactionId=" + transactionId +
-                ", amount=" + amount +
-                ", vendor='" + vendor + '\'' +
+        return "Product{" +
+                "productId=" + productId +
+                ", productName='" + productName + '\'' +
+                ", categoryId=" + categoryId +
+                ", unitPrice=" + unitPrice +
                 '}';
     }
 }

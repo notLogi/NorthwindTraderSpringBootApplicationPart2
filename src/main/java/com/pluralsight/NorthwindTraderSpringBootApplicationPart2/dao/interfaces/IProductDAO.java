@@ -1,6 +1,6 @@
 package com.pluralsight.NorthwindTraderSpringBootApplicationPart2.dao.interfaces;
 
-import com.pluralsight.NorthwindTraderSpringBootApplicationPart2.models.Transaction;
+import com.pluralsight.NorthwindTraderSpringBootApplicationPart2.models.Product;
 
 import java.util.List;
 
@@ -8,43 +8,43 @@ import java.util.List;
  * Interface for Data Access Object (DAO) operations related to the Transaction model.
  * This interface defines the standard operations to be performed on the Transaction data.
  */
-public interface ITransactionDAO {
+public interface IProductDAO {
 
     /**
-     * Adds a new transaction to the data store.
+     * Adds a new Product to the data store.
      *
-     * @param transaction The Transaction object to be added.
-     * @return the new transaction
+     * @param product The Transaction object to be added.
+     * @return the new Product
      */
-    Transaction add(Transaction transaction);
+    Product add(Product product);
 
     /**
-     * Retrieves all transactions from the data store.
+     * Retrieves all Products from the data store.
      *
-     * @return A list of all transactions.
+     * @return A list of all Products.
      */
-    List<Transaction> getAllTransactions();
+    List<Product> getAllProducts();
 
     /**
-     * Retrieves a specific transaction by its ID.
+     * Retrieves a specific Product by its ID.
      *
-     * @param transactionId The ID of the transaction to retrieve.
+     * @param ProductId The ID of the Product to retrieve.
      * @return The Transaction object if found, or null otherwise.
      */
-    Transaction getTransactionById(int transactionId);
+    Product getProductById(int ProductId);
 
     /**
-     * Updates an existing transaction in the data store.
+     * Updates an existing Product in the data store.
      *
-     * @param transactionId The ID of the transaction to update.
-     * @param transaction The Transaction object with updated information.
+     * @param ProductId The ID of the Product to update.
+     * @param product The Transaction object with updated information.
      */
-    void update(int transactionId, Transaction transaction);
+    void update(int ProductId, Product product);
 
     /**
-     * Deletes a transaction from the data store.
+     * Deletes a Product from the data store.
      *
-     * @param transactionId The ID of the transaction to delete.
+     * @param ProductId The ID of the Product to delete.
      */
-    void delete(int transactionId);
+    void delete(int ProductId);
 }

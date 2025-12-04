@@ -1,7 +1,7 @@
 package com.pluralsight.NorthwindTraderSpringBootApplicationPart2.dao.impl;
 
 
-import com.pluralsight.NorthwindTraderSpringBootApplicationPart2.dao.interfaces.ITransactionDAO;
+import com.pluralsight.NorthwindTraderSpringBootApplicationPart2.dao.interfaces.IProductDAO;
 import com.pluralsight.NorthwindTraderSpringBootApplicationPart2.models.Product;
 import org.springframework.stereotype.Component;
 
@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class SimpleTransactionDAO implements ITransactionDAO {
+public class SimpleProductDAO implements IProductDAO {
     private List<Product> products;
 
-    public SimpleTransactionDAO() {
+    public SimpleProductDAO() {
         this.products = new ArrayList<>();
         // Add some initial transactions
         products.add(new Product(1, 150.75, "Amazon"));
@@ -24,25 +24,25 @@ public class SimpleTransactionDAO implements ITransactionDAO {
     public Product add(Product product) {
         int maxId = 0;
         for (Product t : products) {
-            if (t.getTransactionId() > maxId) {
-                maxId = t.getTransactionId();
+            if (t.getProductId() > maxId) {
+                maxId = t.getProductId();
             }
         }
-        product.setTransactionId(maxId + 1); // Increment max ID by 1
+        product.setProductId(maxId + 1); // Increment max ID by 1
         products.add(product);
         return product;
     }
 
 
     @Override
-    public List<Product> getAllTransactions() {
+    public List<Product> getAllProducts() {
         return products;
     }
 
     @Override
-    public Product getTransactionById(int transactionId) {
+    public Product getProductById(int transactionId) {
         for (Product product : products) {
-            if (product.getTransactionId() == transactionId) {
+            if (product.getProductId() == transactionId) {
                 return product;
             }
         }
@@ -51,7 +51,7 @@ public class SimpleTransactionDAO implements ITransactionDAO {
 
     @Override
     public void update(int transactionId, Product product) {
-        int index = getTransactionIndex(transactionId);
+        int index = getProductIndex(transactionId);
         if (index != -1) {
             products.set(index, product);
         }
@@ -59,15 +59,15 @@ public class SimpleTransactionDAO implements ITransactionDAO {
 
     @Override
     public void delete(int transactionId) {
-        int index = getTransactionIndex(transactionId);
+        int index = getProductIndex(transactionId);
         if (index != -1) {
             products.remove(index);
         }
     }
 
-    private int getTransactionIndex(int transactionId) {
+    private int getProductIndex(int transactionId) {
         for (int i = 0; i < products.size(); i++) {
-            if (products.get(i).getTransactionId() == transactionId) {
+            if (products.get(i).getProductId() == transactionId) {
                 return i;
             }
         }
